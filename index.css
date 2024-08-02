@@ -3,7 +3,9 @@
     padding: 0;
     box-sizing: border-box;
 }
-
+body{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
 .row{
     display: flex;
 }
@@ -14,4 +16,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    font-size: 40px;
+    font-weight: 900;
+    transition: all 1s;
 }
