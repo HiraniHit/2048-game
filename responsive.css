@@ -1,45 +1,55 @@
-@media (max-width:768px) {
-    .game-main{
+@media (max-width: 768px) {
+    .game-main {
         width: fit-content;
     }
-    .col{
+    .col {
         width: 100px;
         height: 100px;
     }
-    .header{
+    .header {
         width: 400px;
     }
-    .main{
+    .main,
+    .result {
         width: 400px;
     }
-    .loading-page{
-    background-position: center;
+    .loading-page {
+        background-position: center;
+    }
+    .loading-page > p {
+        font-size: 60px;
     }
 }
 
-@media (max-width:425px) {
-    .col{
+@media (max-width: 425px) {
+    .col {
         width: 80px;
         height: 80px;
         font-size: 30px;
     }
-    .header{
+    .header {
         width: 330px;
     }
-    .main{
+    .main,
+    .result {
         width: 330px;
+    }
+    .loading-page > p {
+        font-size: 50px;
     }
 }
-@media (max-width:320px) {
-    .col{
+@media (max-width: 320px) {
+    .col,
+    .result {
         font-size: 25px;
         width: 60px;
         height: 60px;
     }
-    .header{
+    .header {
         width: 250px;
     }
-    .main{
+    .main,
+    .result {
         width: 250px;
     }
 }

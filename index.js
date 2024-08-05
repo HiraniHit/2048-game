@@ -49,7 +49,7 @@ function cellColor(cell) {
     }
     if (cell.textContent == 8) {
         cell.style.backgroundColor = "#e3beed";
-        cell.style.color = "white";
+        cell.style.color = "black";
     }
     if (cell.textContent == 16) {
         cell.style.backgroundColor = "#da93ed";
@@ -137,6 +137,8 @@ function moveUp() {
         addNumber();
         updateTable();
     }
+    console.log(moved);
+
     up = moved;
 }
 
@@ -172,6 +174,7 @@ function moveDown() {
         addNumber();
         updateTable();
     }
+    console.log(moved);
     down = moved;
 }
 
@@ -199,6 +202,7 @@ function moveLeft() {
         addNumber();
         updateTable();
     }
+    console.log(moved);
     left = moved;
 }
 
@@ -227,10 +231,11 @@ function moveRight() {
         addNumber();
         updateTable();
     }
+    console.log(moved);
     right = moved;
 }
 
-document.addEventListener("keydown", (e) => {
+document.addEventListener("keyup", (e) => {
     if (e.key === "ArrowUp" || e.key === "w") moveUp();
     else if (e.key === "ArrowDown" || e.key === "s") moveDown();
     else if (e.key === "ArrowLeft" || e.key === "a") moveLeft();
