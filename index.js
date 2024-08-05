@@ -231,10 +231,10 @@ function moveRight() {
 }
 
 document.addEventListener("keydown", (e) => {
-    if (e.key === "ArrowUp") moveUp();
-    else if (e.key === "ArrowDown") moveDown();
-    else if (e.key === "ArrowLeft") moveLeft();
-    else if (e.key === "ArrowRight") moveRight();
+    if (e.key === "ArrowUp" || e.key === "w") moveUp();
+    else if (e.key === "ArrowDown" || e.key === "s") moveDown();
+    else if (e.key === "ArrowLeft" || e.key === "a") moveLeft();
+    else if (e.key === "ArrowRight" || e.key === "d") moveRight();
 
     scoreDiv.textContent = score;
 
