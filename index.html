@@ -3,22 +3,40 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+            rel="shortcut icon"
+            href="./img/2048_logo.svg.webp"
+            type="image/x-icon"
+        />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bungee+Shade&family=Micro+5&family=Mr+Dafoe&family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="index.css" />
+        <link rel="stylesheet" href="responsive.css">
         <title>2048</title>
     </head>
     <body>
-        <div class="game">
+        <div class="loading-page">
+            <p>2048</p>
+        </div>
+        <div class="game hide">
+            <div class="header">
+                <h1>2048</h1>
+                <span>Join the tiles, get to 2048!</span>
+            </div>
             <div class="main">
                 <div>
                     <p class="score-plat">Score</p>
                     <p class="score">0</p>
                 </div>
                 <div>
-                    <p class="score-plat">Best Score</p>
+                    <p class="score-plat">Best</p>
                     <p class="bestScore">0</p>
                 </div>
                 <div>
-                    <button class="newGame" onclick="startNewGame()">New Game</button>
+                    <button class="newGame" onclick="startNewGame()">
+                        New Game
+                    </button>
                 </div>
             </div>
             <div class="container">

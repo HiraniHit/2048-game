@@ -1,4 +1,6 @@
 let mainDiv = document.querySelector(".game-main");
+let loading = document.querySelector(".loading-page");
+let game = document.querySelector(".game");
 let result = document.querySelector(".result");
 let scoreDiv = document.querySelector(".score");
 let bestScoreDiv = document.querySelector(".bestScore");
@@ -12,6 +14,12 @@ let up = true;
 let down = true;
 let right = true;
 let left = true;
+
+setTimeout(() => {
+    loading.classList.add("hide");
+    game.classList.remove("hide");
+}, 2000);
+
 function createTable() {
     let html = "";
     for (let i = 0; i < size; i++) {
@@ -26,7 +34,56 @@ function createTable() {
     addNumber();
     updateTable();
 }
-
+function cellColor(cell) {
+    if (cell.textContent == "") {
+        cell.style.backgroundColor = "#92a8c2";
+        cell.style.color = "black";
+    }
+    if (cell.textContent == 2) {
+        cell.style.backgroundColor = "#f5f5f5";
+        cell.style.color = "black";
+    }
+    if (cell.textContent == 4) {
+        cell.style.backgroundColor = "#cccaca";
+        cell.style.color = "black";
+    }
+    if (cell.textContent == 8) {
+        cell.style.backgroundColor = "#e3beed";
+        cell.style.color = "white";
+    }
+    if (cell.textContent == 16) {
+        cell.style.backgroundColor = "#da93ed";
+        cell.style.color = "white";
+    }
+    if (cell.textContent == 32) {
+        cell.style.backgroundColor = "#b157c9";
+        cell.style.color = "white";
+    }
+    if (cell.textContent == 64) {
+        cell.style.backgroundColor = "#52073c";
+        cell.style.color = "white";
+    }
+    if (cell.textContent == 128) {
+        cell.style.backgroundColor = "#2b1673";
+        cell.style.color = "white";
+    }
+    if (cell.textContent == 256) {
+        cell.style.backgroundColor = "#084547";
+        cell.style.color = "white";
+    }
+    if (cell.textContent == 512) {
+        cell.style.backgroundColor = "#84a0c2";
+        cell.style.color = "black";
+    }
+    if (cell.textContent == 1024) {
+        cell.style.backgroundColor = "#84a0c2";
+        cell.style.color = "black";
+    }
+    if (cell.textContent == 2048) {
+        cell.style.backgroundColor = "#84a0c2";
+        cell.style.color = "black";
+    }
+}
 function addNumber() {
     let added = false;
     while (!added) {
@@ -44,6 +101,7 @@ function updateTable() {
         for (let j = 0; j < size; j++) {
             let cell = document.getElementById(`${i}-${j}`);
             cell.textContent = board[i][j] || "";
+            cellColor(cell);
         }
     }
 }
@@ -79,7 +137,7 @@ function moveUp() {
         addNumber();
         updateTable();
     }
-    up = moved
+    up = moved;
 }
 
 function moveDown() {
@@ -114,7 +172,7 @@ function moveDown() {
         addNumber();
         updateTable();
     }
-   down = moved
+    down = moved;
 }
 
 function moveLeft() {
@@ -141,8 +199,7 @@ function moveLeft() {
         addNumber();
         updateTable();
     }
-   left = moved
-    
+    left = moved;
 }
 
 function moveRight() {
@@ -170,7 +227,7 @@ function moveRight() {
         addNumber();
         updateTable();
     }
-    right = moved
+    right = moved;
 }
 
 document.addEventListener("keydown", (e) => {
@@ -186,16 +243,14 @@ document.addEventListener("keydown", (e) => {
     } else {
         bestScoreDiv.textContent = bestScore;
     }
-    if(up == false && down == false && left == false && right  == false){
-
-
-        if(bestScore < score){
-            bestScore = score
+    if (up == false && down == false && left == false && right == false) {
+        if (bestScore < score) {
+            bestScore = score;
         }
 
-        localStorage.setItem("best-score",JSON.stringify(bestScore))
-        mainDiv.classList.add("hide")
-        result.classList.remove("hide")
+        localStorage.setItem("best-score", JSON.stringify(bestScore));
+        mainDiv.classList.add("hide");
+        result.classList.remove("hide");
     }
 });
 

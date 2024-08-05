@@ -1,0 +1,45 @@
+@media (max-width:768px) {
+    .game-main{
+        width: fit-content;
+    }
+    .col{
+        width: 100px;
+        height: 100px;
+    }
+    .header{
+        width: 400px;
+    }
+    .main{
+        width: 400px;
+    }
+    .loading-page{
+    background-position: center;
+    }
+}
+
+@media (max-width:425px) {
+    .col{
+        width: 80px;
+        height: 80px;
+        font-size: 30px;
+    }
+    .header{
+        width: 330px;
+    }
+    .main{
+        width: 330px;
+    }
+}
+@media (max-width:320px) {
+    .col{
+        font-size: 25px;
+        width: 60px;
+        height: 60px;
+    }
+    .header{
+        width: 250px;
+    }
+    .main{
+        width: 250px;
+    }
+}
