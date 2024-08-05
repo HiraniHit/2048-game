@@ -1,7 +1,17 @@
 let mainDiv = document.querySelector(".game-main");
+let result = document.querySelector(".result");
+let scoreDiv = document.querySelector(".score");
+let bestScoreDiv = document.querySelector(".bestScore");
+let score = 0;
+let bestScore = JSON.parse(localStorage.getItem("best-score"));
 let size = 4;
-let board = Array(size).fill().map(() => Array(size).fill(0));
-
+let board = Array(size)
+    .fill()
+    .map(() => Array(size).fill(0));
+let up = true;
+let down = true;
+let right = true;
+let left = true;
 function createTable() {
     let html = "";
     for (let i = 0; i < size; i++) {
@@ -50,6 +60,7 @@ function moveUp() {
         for (let i = 0; i < column.length - 1; i++) {
             if (column[i] === column[i + 1]) {
                 column[i] *= 2;
+                score += column[i];
                 column.splice(i + 1, 1);
                 moved = true;
             }
@@ -68,6 +79,7 @@ function moveUp() {
         addNumber();
         updateTable();
     }
+    up = moved
 }
 
 function moveDown() {
@@ -82,6 +94,8 @@ function moveDown() {
         for (let i = 0; i < column.length - 1; i++) {
             if (column[i] === column[i + 1]) {
                 column[i] *= 2;
+                score += column[i];
+
                 column.splice(i + 1, 1);
                 moved = true;
             }
@@ -100,15 +114,17 @@ function moveDown() {
         addNumber();
         updateTable();
     }
+   down = moved
 }
 
 function moveLeft() {
     let moved = false;
     for (let row = 0; row < size; row++) {
-        let newRow = board[row].filter(val => val !== 0);
+        let newRow = board[row].filter((val) => val !== 0);
         for (let i = 0; i < newRow.length - 1; i++) {
             if (newRow[i] === newRow[i + 1]) {
                 newRow[i] *= 2;
+                score += newRow[i];
                 newRow.splice(i + 1, 1);
                 moved = true;
             }
@@ -116,7 +132,7 @@ function moveLeft() {
         while (newRow.length < size) {
             newRow.push(0);
         }
-        if (newRow.join(',') !== board[row].join(',')) {
+        if (newRow.join(",") !== board[row].join(",")) {
             moved = true;
         }
         board[row] = newRow;
@@ -125,15 +141,19 @@ function moveLeft() {
         addNumber();
         updateTable();
     }
+   left = moved
+    
 }
 
 function moveRight() {
     let moved = false;
     for (let row = 0; row < size; row++) {
-        let newRow = board[row].filter(val => val !== 0);
+        let newRow = board[row].filter((val) => val !== 0);
         for (let i = newRow.length - 1; i > 0; i--) {
             if (newRow[i] === newRow[i - 1]) {
                 newRow[i] *= 2;
+                score += newRow[i];
+
                 newRow.splice(i - 1, 1);
                 moved = true;
             }
@@ -141,7 +161,7 @@ function moveRight() {
         while (newRow.length < size) {
             newRow.unshift(0);
         }
-        if (newRow.join(',') !== board[row].join(',')) {
+        if (newRow.join(",") !== board[row].join(",")) {
             moved = true;
         }
         board[row] = newRow;
@@ -150,6 +170,7 @@ function moveRight() {
         addNumber();
         updateTable();
     }
+    right = moved
 }
 
 document.addEventListener("keydown", (e) => {
@@ -157,6 +178,31 @@ document.addEventListener("keydown", (e) => {
     else if (e.key === "ArrowDown") moveDown();
     else if (e.key === "ArrowLeft") moveLeft();
     else if (e.key === "ArrowRight") moveRight();
+
+    scoreDiv.textContent = score;
+
+    if (score > bestScore) {
+        bestScoreDiv.textContent = score;
+    } else {
+        bestScoreDiv.textContent = bestScore;
+    }
+    if(up == false && down == false && left == false && right  == false){
+
+
+        if(bestScore < score){
+            bestScore = score
+        }
+
+        localStorage.setItem("best-score",JSON.stringify(bestScore))
+        mainDiv.classList.add("hide")
+        result.classList.remove("hide")
+    }
 });
 
+function startNewGame() {
+    window.location.reload();
+}
+function playAgain() {
+    window.location.reload();
+}
 createTable();

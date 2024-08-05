@@ -5,18 +5,99 @@
 }
 body{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-color:#070F2B ;
+}
+.game{
+    height: 95vh;
+    width: 100vw;
+    padding: 100px;
+    
+}
+.game > div {
+    margin: 20px auto;
 }
 .row{
     display: flex;
 }
 .col{
     border: 1px solid black;
-    height: 100px;
-    width: 100px;
+    height: 130px;
+    width: 130px;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 40px;
     font-weight: 900;
     transition: all 1s;
+    background-color: #9290C3;
+    margin: 3px;
+    border-radius: 5px;
+}
+.main{
+    border: 1px solid black;
+    height: 100px;
+    width: 520px;
+    margin: auto;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgb(189, 188, 222);
+    border-radius: 10px;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.515) inset;
+}
+.main > div {
+    margin: auto;
+}
+.main > div > p {
+    text-align: center;
+    padding: 5px;
+}
+.game-main{
+    height: 520px;
+    width: 520px;
+    margin: auto;
+}
+.result{
+    height: 520px;
+    width: 520px;
+    display: flex;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+
+}
+.result > div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+.result > div > p{
+    font-size: 27px;
+    font-weight: 600;
+}
+.main > div > button{
+    width: fit-content;
+    padding: 8px 16px;
+    outline: none;
+    border: none;
+    background-color: #0a0a64;
+    color: rgb(255, 255, 255);
+    border-radius: 5px;
+}
+.result > div > button {
+    width: fit-content;
+    padding: 8px 16px;
+    outline: none;
+    border: none;
+    background-color: #1B1A55;
+    color: white;
+    border-radius: 5px;
+}
+.hide{
+    display: none;
+}
+.opacity{
+    opacity: 0.2;
 }

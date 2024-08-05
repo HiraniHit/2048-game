@@ -1,19 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="index.css">
-    <title>2048</title>
-</head>
-<body>
-
-    <div class="container">
-        <div class="game-main">
-            
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="index.css" />
+        <title>2048</title>
+    </head>
+    <body>
+        <div class="game">
+            <div class="main">
+                <div>
+                    <p class="score-plat">Score</p>
+                    <p class="score">0</p>
+                </div>
+                <div>
+                    <p class="score-plat">Best Score</p>
+                    <p class="bestScore">0</p>
+                </div>
+                <div>
+                    <button class="newGame" onclick="startNewGame()">New Game</button>
+                </div>
+            </div>
+            <div class="container">
+                <div class="game-main"></div>
+                <div class="result hide">
+                    <div>
+                        <p>Game Over !!</p>
+                        <button onclick="playAgain()">Play Again</button>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
-    
-</body>
-<script src="index.js"></script>
+    </body>
+    <script src="index.js"></script>
 </html>
