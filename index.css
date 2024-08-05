@@ -106,7 +106,7 @@ h1 {
 .result > div > p {
     font-size: 27px;
     font-weight: 600;
-    color: #9290c3;
+    color: #90b7c3;
 }
 .main > div > button {
     width: fit-content;
@@ -122,8 +122,8 @@ h1 {
     padding: 8px 16px;
     outline: none;
     border: none;
-    background-color: #32316c;
-    color: white;
+    background-color: #a5b2dd;
+    color: #32316c;
     border-radius: 5px;
 }
 .hide {

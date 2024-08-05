@@ -2,6 +2,7 @@
 
 2048 game with Only JS
 
+How to play: 
 Use your arrow keys to move the tiles. 
 When two tiles with the same number touch, they merge into one!
 
